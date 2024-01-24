@@ -1,0 +1,231 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifestyle App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Rockwell';
+            background: linear-gradient(to bottom, #579df4, #c4dcff); /* Blue gradient background */
+            color: #fff; /* White text color */
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+            position: relative; /* Make the body a positioning context */
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(to bottom, #0071fa, #c4dcff); /* Gradient header background */
+            color: #fff; /* White text color */
+        }
+
+        .random-squares,
+        .random-squares2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .random-square,
+        .random-square2 {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+            border-radius: 3px;
+            pointer-events: none;
+            animation: drift 10s linear infinite, collision 0.5s ease infinite alternate;
+        }
+
+        .random-square {
+            background: #00aaff;
+        }
+
+        .random-square2 {
+            background: #fcfaff;
+        }
+
+        @keyframes drift {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(500px, 500px);
+            }
+        }
+
+        section {
+            padding: 35px;
+            text-align: center;
+            position: relative; /* Make the section a positioning context */
+            z-index: 1;
+        }
+
+        .contact-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #4b6c82;
+            color: #fff;
+            padding: 20px 40px; /* Increased button size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 15px 0; /* Added margin to separate buttons */
+        }
+
+        button:hover {
+            background: #2945fc;
+        }
+
+        .button-column {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .button-column.left {
+            left: 0;
+        }
+
+        .button-column.right {
+            right: 0;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(to right, #161616, #585858);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>LIFE-LY!© Live your best life!</h1>
+        <h3>
+            The app made to support those in need, both physically and mentally, in order to help them live their best life!
+        </h3>
+    </header>
+
+    <div class="random-squares"></div>
+    <div class="random-squares2"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const randomSquares = document.querySelector('.random-squares');
+    
+            for (let i = 0; i < 50; i++) {
+                const square = document.createElement('div');
+                square.classList.add('random-square');
+                square.style.top = Math.random() * 100 + 'vh';
+                square.style.left = Math.random() * 100 + 'vw';
+                square.style.animation = 'drift ' + (Math.random() * 10 + 5) + 's linear infinite';
+                randomSquares.appendChild(square);
+            }
+
+            const randomSquares2 = document.querySelector('.random-squares2');
+    
+            for (let i = 0; i < 50; i++) {
+                const square = document.createElement('div');
+                square.classList.add('random-square2');
+                square.style.top = Math.random() * 100 + 'vh';
+                square.style.left = Math.random() * 100 + 'vw';
+                square.style.animation = 'drift ' + (Math.random() * 10 + 5) + 's linear infinite';
+                randomSquares2.appendChild(square);
+            }
+        });
+    </script>
+
+    <section>
+        <h2>Contact Us!</h2>
+        <div class="contact-form">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <h3><a href="https://mail.google.com/mail/">SUBMIT.</a></h3>
+            </form>
+        </div>
+
+        <div class="button-column left">
+            <h3><a href="https://anshumanngithub.github.io/Healthy-tipz/">HEALTHY-TIPZ! 
+        </a></h3>
+        <h4>Health tips for each age-group!</h4>
+        
+            
+            <h3><a href="https://anshumanngithub.github.io/fitness/">FITNESS FUN!</a> </h3>
+            <h4>Fun and interactive fitness app!</h4>
+            
+            <h3><a href="https://anshumanngithub.github.io/cookbook/">ONLINE COOKBOOK!</a></h3>
+            <h4>Virtual cookbook with delicious recipes!</h4>
+        </div>
+
+        <div class="button-column right">
+        <h3><a href="https://anshumanngithub.github.io/Senti-Journal/">GRATITUDE-JOURNAL!</a></h3>
+        <h4>Write whatever is on your mind!</h4>
+       
+            <h3><a href="https://anshumanngithub.github.io/about-us/">ABOUT US!</a> </h3>
+            <h4>Learn more about us!</h4>
+         
+            <h3><a href="http://127.0.0.1:5501/LIFESTYLE%20APP/index.html">CONTACT US!</a></h3>
+            <h4>Contact us!</h4>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p>2024 LIFE-LY!© All rights reserved</p>
+    </div>
+
+</body>
+
+</html>
